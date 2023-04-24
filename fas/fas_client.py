@@ -1,4 +1,5 @@
-from fas import fas_api
+from fas    import fas_api
+from typing import Callable
 
 
 sym_to_code = {
@@ -26,6 +27,22 @@ sym_to_code = {
 
 def get_commodity_data(symbol_or_code: str, start: int, end: int):
 
+    return commodity_data_base(symbol_or_code, start, end, fas_api.commodity_data_by_year)
+
+
+
+def get_world_commodity_data(symbol_or_code: str, start: int, end: int):
+
+    return commodity_data_base(symbol_or_code, start, end, fas_api.world_commodity_data_by_year)
+
+
+def commodity_data_base(
+    symbol_or_code: str,
+    start:          int,
+    end:            int,
+    func:           Callable
+):
+
     code = symbol_or_code
 
     if len(symbol_or_code) < 7:
@@ -36,7 +53,7 @@ def get_commodity_data(symbol_or_code: str, start: int, end: int):
 
     for year in range(start, end + 1):
 
-        res = fas_api.commodity_data_by_year(code, year)
+        res = func(code, year)
 
         if res:
 
