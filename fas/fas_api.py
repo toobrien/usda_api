@@ -1,5 +1,5 @@
-from    usda_api.config import  CONFIG
-from    requests        import  get
+from    config      import  CONFIG
+from    requests    import  get
 
 
 # https://apps.fas.usda.gov/psdonline/app/index.html#/app/about#G1

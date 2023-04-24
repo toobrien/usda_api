@@ -1,4 +1,4 @@
-from usda_api.fas import fas_api
+from fas import fas_api
 
 
 sym_to_code = {

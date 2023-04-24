@@ -1,6 +1,6 @@
-from    usda_api.fas    import  fas_client
-import  polars          as      pl
-from    sys             import  argv
+from    fas     import  fas_client
+import  polars  as      pl
+from    sys     import  argv
 
 
 def s0():
