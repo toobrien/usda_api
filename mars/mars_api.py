@@ -4,11 +4,12 @@ from requests   import get
 
 API_KEY     = CONFIG["mars"]["api_key"]
 ENDPOINT    = CONFIG["mars"]["endpoint"]
+AUTH        = ("", API_KEY)
 
 
 def get_reports():
 
-    res = get(ENDPOINT + "/reports", auth = ("", API_KEY))
+    res = get(ENDPOINT + "/reports", auth = AUTH)
     res = res.json()
 
     return res
@@ -16,7 +17,7 @@ def get_reports():
 
 def get_report(slug_id: str):
 
-    res = get(ENDPOINT + f"/reports/{slug_id}", auth = ("", API_KEY))
+    res = get(ENDPOINT + f"/reports/{slug_id}", AUTH)
     res = res.json()
 
     return res
