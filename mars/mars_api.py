@@ -17,7 +17,7 @@ def get_reports():
 
 def get_report(slug_id: str):
 
-    res = get(ENDPOINT + f"/reports/{slug_id}", AUTH)
+    res = get(ENDPOINT + f"/reports/{slug_id}", auth = AUTH)
     res = res.json()
 
     return res
